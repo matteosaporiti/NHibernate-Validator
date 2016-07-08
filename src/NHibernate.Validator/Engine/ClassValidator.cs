@@ -6,7 +6,7 @@ using System.Globalization;
 using System.Reflection;
 using System.Resources;
 using System.Runtime.Serialization;
-
+using System.Security;
 using NHibernate.Mapping;
 using NHibernate.Properties;
 using NHibernate.Validator.Constraints;
@@ -837,7 +837,7 @@ namespace NHibernate.Validator.Engine
 		//    validatorMode = factory.ValidatorMode;
 		//}
 
-
+        [SecurityCritical]
 		public void GetObjectData(SerializationInfo info, StreamingContext context)
 		{
 			info.AddValue("interpolator", userInterpolatorType);
